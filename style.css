@@ -1,0 +1,76 @@
+#main {
+	max-width: 500px;
+	position: relative;
+	margin: auto;
+}
+
+img {
+	height: 500px;
+	width: 500px;
+}
+
+.slide {
+	display: none;
+}
+
+#prev,
+#next {
+	box-sizing: border-box;
+	cursor: pointer;
+	user-select: none;
+	top: 50%;
+	position: absolute;
+	width: auto;
+	font-size: 30px;
+	padding: 10px;
+	transition: 0.3s ease;
+	margin-top: -25px;
+	color: rgb(255, 255, 255);
+	-webkit-text-stroke: 1px rgb(0, 0, 0);
+}
+
+#prev {
+	border-radius: 0 5px 5px 0;
+	left: 0;
+}
+
+#next {
+	border-radius: 5px 0 0 5px;
+	right: 0;
+}
+
+#prev:hover,
+#next:hover {
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.dotsControls {
+	text-align: center;
+}
+
+.dot {
+	transition: 0.3s ease;
+	height: 20px;
+	width: 20px;
+	background-color: rgba(125, 125, 125, 0.5);
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.dot:hover,
+.active {
+	background-color: rgba(125, 125, 125, 0.8);
+}
+
+.animation {
+	animation: animation 2s;
+}
+
+@keyframes animation {
+	from {
+		opacity: 0.5;
+	}
+	to {
+		opacity: 1;
+	}
+}
