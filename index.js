@@ -1,6 +1,7 @@
 const prev = document.getElementById('prev');
 const next = document.getElementById('next');
 const allDots = document.querySelectorAll('.dot');
+const allSlides = document.querySelectorAll('.slide');
 
 let slideIndex = 1;
 
@@ -27,7 +28,6 @@ allDots.forEach((dot) => {
 });
 
 function showSlides(x) {
-	let allSlides = document.querySelectorAll('.slide');
 	let i;
 	if (x > allSlides.length) {
 		slideIndex = 1;
@@ -43,13 +43,23 @@ function showSlides(x) {
 	}
 	allSlides[slideIndex - 1].style.display = 'block';
 	allDots[slideIndex - 1].classList.add('active');
-
-	// Automatic slideshow, needs more fiddling to make it work with rest of the code.
-	// slideIndex++;
-	// if (slideIndex > allSlides.length) {
-	// 	slideIndex = 1;
-	// }
-	// setTimeout(showSlides, 5000);
 }
 
-showSlides();
+function autoSlide() {
+	let i;
+	if (slideIndex > allSlides.length) {
+		slideIndex = 1;
+	}
+	for (i = 0; i < allSlides.length; i++) {
+		allSlides[i].style.display = 'none';
+	}
+	for (i = 0; i < allDots.length; i++) {
+		allDots[i].classList.remove('active');
+	}
+	allSlides[slideIndex - 1].style.display = 'block';
+	allDots[slideIndex - 1].classList.add('active');
+	slideIndex++;
+	setTimeout(autoSlide, 5000);
+}
+
+autoSlide();
