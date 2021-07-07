@@ -45,7 +45,7 @@ function showSlides(x) {
 	allDots[slideIndex - 1].classList.add('active');
 }
 
-function autoSlide() {
+(function autoSlide() {
 	let i;
 	if (slideIndex > allSlides.length) {
 		slideIndex = 1;
@@ -60,6 +60,4 @@ function autoSlide() {
 	allDots[slideIndex - 1].classList.add('active');
 	slideIndex++;
 	setTimeout(autoSlide, 5000);
-}
-
-autoSlide();
+})()
